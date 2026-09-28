@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	scroll-behavior: smooth;
+	overflow-x: clip;
+}
+
+html.gallery-open,
+html.gallery-open body {
+	overflow: hidden;
+}
+
+html,
+body,
+#root {
+	background-color: #0c0c0c;
+}
+
+body {
+	font-family: "Heebo", "Kanit", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+::selection {
+	background-color: #b600a8;
+	color: #ffffff;
+}
+
+.hero-heading-wrapper {
+	container-type: inline-size;
+}
+
+/* Sticky stack slots. Top offset clears the viewport edge and steps each card
+   so the cards underneath stay visible as a thin layer. */
+.work-stack-item {
+	top: calc(12px + (var(--stack-i) * 10px));
+	pointer-events: none;
+}
+
+@media (min-width: 768px) {
+	.work-stack-item {
+		top: calc(56px + (var(--stack-i) * 12px));
+	}
+}
+
+.hero-heading {
+	background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+}
+
+.hero-title {
+	font-family: "Kanit", sans-serif;
+	font-size: calc(100cqw / 11.4);
+}
+
+.hero-slogan {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 0.7rem;
+	font-family: "Heebo", sans-serif;
+	line-height: 1.05;
+	text-align: center;
+}
+
+.hero-slogan-kicker {
+	color: #d7e2ea;
+	font-size: clamp(1.05rem, calc(100cqw / 22), 3.15rem);
+	font-weight: 500;
+	white-space: nowrap;
+}
+
+.hero-slogan-focus {
+	margin-top: 0.12em;
+	font-size: clamp(2.05rem, calc(100cqw / 9.4), 7.25rem);
+	font-weight: 800;
+	letter-spacing: -0.02em;
+	white-space: nowrap;
+	background-image: linear-gradient(120deg, #7621b0 0%, #b600a8 62%, #b600a8 78%, #be4c00 100%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	-webkit-text-fill-color: transparent;
+	filter: drop-shadow(0 10px 22px rgba(182, 0, 168, 0.14));
+}
+
+
+@keyframes hero-float {
+	0%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+	50% {
+		transform: translate3d(0, -14px, 0);
+	}
+}
+
+.hero-float {
+	animation: hero-float 6s ease-in-out infinite;
+	will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.hero-float {
+		animation: none;
+	}
+}
+
+@property --contact-glow-angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+.contact-button-glow-wrap {
+	box-shadow:
+		0 0 28px rgba(182, 0, 168, 0.35),
+		0 0 56px rgba(118, 33, 176, 0.12);
+	transition: box-shadow 0.25s ease;
+}
+
+.contact-button-glow-wrap:hover {
+	box-shadow:
+		0 0 36px rgba(182, 0, 168, 0.5),
+		0 0 72px rgba(118, 33, 176, 0.22);
+}
+
+/* Thin static ring + a bright segment that travels along the pill edge (no spinning layer). */
+.contact-button-glow-trail {
+	--contact-glow-angle: 0deg;
+	padding: 2px;
+	background: conic-gradient(
+		from var(--contact-glow-angle),
+		rgba(255, 255, 255, 0.28) 0deg,
+		rgba(255, 255, 255, 0.28) 326deg,
+		rgba(255, 255, 255, 0.55) 334deg,
+		#ffffff 340deg,
+		#f0abfc 344deg,
+		#b600a8 348deg,
+		#7621b0 352deg,
+		rgba(255, 255, 255, 0.55) 356deg,
+		rgba(255, 255, 255, 0.28) 360deg
+	);
+	-webkit-mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	-webkit-mask-composite: xor;
+	mask:
+		linear-gradient(#000 0 0) content-box,
+		linear-gradient(#000 0 0);
+	mask-composite: exclude;
+	filter: drop-shadow(0 0 4px rgba(182, 0, 168, 0.85));
+	animation: contact-button-glow-travel 2.8s linear infinite;
+}
+
+@keyframes contact-button-glow-travel {
+	to {
+		--contact-glow-angle: 360deg;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.contact-button-glow-trail {
+		animation: none;
+		background: rgba(255, 255, 255, 0.35);
+		filter: none;
+	}
+}
