@@ -80,8 +80,8 @@ export default function ContactSection() {
 		>
 			<FadeIn delay={0} y={40}>
 				<h2
-					className="mx-auto mb-6 max-w-5xl text-center font-black leading-[0.95] tracking-tight text-[#0C0C0C] sm:mb-8"
-					style={{ fontSize: "clamp(2.2rem, 7vw, 96px)" }}
+					className="mx-auto mb-6 max-w-4xl text-center font-black leading-[0.95] tracking-tight text-[#0C0C0C] sm:mb-8"
+					style={{ fontSize: "clamp(2.1rem, 6vw, 84px)" }}
 				>
 					יש לכם משהו בראש?
 					<br />
@@ -91,8 +91,8 @@ export default function ContactSection() {
 
 			<FadeIn delay={0.1} y={24}>
 				<p
-					className="mx-auto mb-12 max-w-xl text-center font-medium leading-relaxed text-[#0C0C0C]/70 sm:mb-16"
-					style={{ fontSize: "clamp(1.05rem, 2vw, 1.45rem)" }}
+					className="mx-auto mb-12 max-w-lg text-center font-medium leading-relaxed text-[#0C0C0C]/70 sm:mb-16"
+					style={{ fontSize: "clamp(1rem, 1.7vw, 1.3rem)" }}
 				>
 					ספרו לי בקצרה מה אתם רוצים ליצור ואחזור אליכם.
 				</p>
@@ -101,7 +101,7 @@ export default function ContactSection() {
 			<form
 				onSubmit={onSubmit}
 				noValidate
-				className="mx-auto flex w-full max-w-2xl flex-col gap-8"
+				className="mx-auto flex w-full max-w-xl flex-col gap-8"
 			>
 				<FadeIn delay={0.16} y={28}>
 					<label className="block">
@@ -116,7 +116,7 @@ export default function ContactSection() {
 							onChange={(event) => setField("name", event.target.value)}
 							aria-invalid={errors.name ? true : undefined}
 							className={FIELD_CLASS}
-							style={{ fontSize: "clamp(1.15rem, 2vw, 1.7rem)" }}
+							style={{ fontSize: "clamp(1.1rem, 1.75vw, 1.5rem)" }}
 						/>
 						<FieldError message={errors.name} />
 					</label>
@@ -137,7 +137,7 @@ export default function ContactSection() {
 							onChange={(event) => setField("phone", event.target.value)}
 							aria-invalid={errors.phone ? true : undefined}
 							className={`${FIELD_CLASS} text-end`}
-							style={{ fontSize: "clamp(1.15rem, 2vw, 1.7rem)" }}
+							style={{ fontSize: "clamp(1.1rem, 1.75vw, 1.5rem)" }}
 						/>
 						<FieldError message={errors.phone} />
 					</label>
@@ -156,7 +156,7 @@ export default function ContactSection() {
 							onChange={(event) => setField("message", event.target.value)}
 							aria-invalid={errors.message ? true : undefined}
 							className={`${FIELD_CLASS} resize-none leading-relaxed`}
-							style={{ fontSize: "clamp(1.05rem, 1.8vw, 1.35rem)" }}
+							style={{ fontSize: "clamp(1rem, 1.55vw, 1.22rem)" }}
 						/>
 						<FieldError message={errors.message} />
 					</label>
@@ -167,7 +167,7 @@ export default function ContactSection() {
 						<button
 							type="submit"
 							disabled={sending}
-							className="inline-block rounded-full px-10 py-3.5 text-center text-sm font-medium text-white transition-[filter,transform] duration-200 hover:scale-[1.03] hover:brightness-110 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60 sm:px-12 sm:py-4 sm:text-base"
+							className="inline-block rounded-full px-12 py-4 text-center text-base font-medium text-white transition-[filter,transform] duration-200 hover:scale-[1.03] hover:brightness-110 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-60 sm:px-16 sm:py-5 sm:text-lg"
 							style={{
 								background:
 									"linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)",

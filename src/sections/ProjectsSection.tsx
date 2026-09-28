@@ -64,17 +64,17 @@ function ProjectCard({
 			}
 		>
 			<motion.div
-				className={`${CARD_RADIUS} pointer-events-auto border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8`}
+				className={`${CARD_RADIUS} pointer-events-auto border-2 border-[#D7E2EA] bg-[#0C0C0C] p-3.5 sm:p-5 md:p-6`}
 				style={{
 					scale,
 					transformOrigin: "top center",
 				}}
 			>
-					<div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 px-2 pb-4 sm:px-4 sm:pb-6 md:px-6 md:pb-8">
-						<div className="flex items-center gap-4 sm:gap-6 md:gap-8">
+					<div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-3 px-1.5 pb-3 sm:px-3 sm:pb-4 md:px-4 md:pb-5">
+						<div className="flex items-center gap-3 sm:gap-5 md:gap-6">
 							<span
 								className="hero-heading font-black leading-none"
-								style={{ fontSize: "clamp(3rem, 10vw, 140px)" }}
+								style={{ fontSize: "clamp(2.6rem, 8vw, 112px)" }}
 							>
 								{project.number}
 							</span>
@@ -90,7 +90,7 @@ function ProjectCard({
 								</span>
 								<h3
 									className="font-medium leading-tight text-[#D7E2EA]"
-									style={{ fontSize: "clamp(1.1rem, 2.4vw, 2.2rem)" }}
+									style={{ fontSize: "clamp(1rem, 2vw, 1.85rem)" }}
 								>
 									{project.name}
 								</h3>
@@ -106,14 +106,14 @@ function ProjectCard({
 								alt={`${project.name} — פריים 1`}
 								loading="lazy"
 								className={`${CARD_RADIUS} w-full object-cover`}
-								style={{ height: "clamp(130px, 16vw, 230px)" }}
+								style={{ height: "clamp(112px, 13.5vw, 190px)" }}
 							/>
 							<img
 								src={project.col1[1]}
 								alt={`${project.name} — פריים 2`}
 								loading="lazy"
 								className={`${CARD_RADIUS} w-full object-cover`}
-								style={{ height: "clamp(160px, 22vw, 340px)" }}
+								style={{ height: "clamp(136px, 18vw, 270px)" }}
 							/>
 						</div>
 						<div className="relative w-[60%]">
@@ -152,7 +152,7 @@ export default function ProjectsSection() {
 				</h2>
 			</FadeIn>
 
-			<div ref={containerRef} className="mx-auto max-w-7xl">
+			<div ref={containerRef} className="mx-auto max-w-6xl">
 				{SELECTED_WORK.map((project, i) => (
 					<ProjectCard
 						key={project.number}
@@ -168,7 +168,7 @@ export default function ProjectsSection() {
 			<FadeIn
 				delay={0.1}
 				y={20}
-				className="relative z-30 -mt-32 mb-14 flex justify-center sm:mb-16 md:-mt-44 md:mb-20"
+				className="relative z-30 -mt-12 mb-14 flex justify-center sm:-mt-14 sm:mb-16 md:-mt-20 md:mb-20"
 			>
 				<button
 					type="button"
